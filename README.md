@@ -25,6 +25,24 @@ This is a simple Android app that allows users to manage a list of products. The
 - Users can submit the data to the server using the POST method to the API endpoint https://app.getswipe.in/api/public/add.
 - Provide clear and concise feedback to the user upon successful completion of the action.
 
+## API Specification
+The app uses the following API endpoint and parameters to interact with the server:
+
+# POST Method: Add Product
+ Endpoint: https://app.getswipe.in/api/public/add
+
+ Body Type: form-data
+
+| Parameter Name | Type | Description                      |
+|----------------|------|----------------------------------|
+| product_name   | text | Product Name                     |
+| product_type   | text | Product Type                     |
+| price          | text | Selling Price                    |
+| tax            | text | Tax Rate                         |
+| files[]        | file | Images (Optional, multiple files) |
+
+Please note that the `files[]` parameter allows multiple images to be uploaded as an array of files. The other parameters are text-based, representing the product details such as name, type, price, and tax rate.
+
 ## Technologies and Best Practices Used
 
 - MVVM architecture for clear separation of concerns and maintainability.
