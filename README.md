@@ -22,7 +22,7 @@ This is a simple Android app that allows users to manage a list of products. The
 - Enter the product name, selling price, and tax rate using text fields.
 - Optionally select images in JPEG or PNG format with a 1:1 ratio.
 - Validate fields such as product type selection, non-empty product name, and decimal numbers for selling price and tax.
-- Users can submit the data to the server using the POST method to the API endpoint `https://app.getswipe.in/api/public/add`.
+- Users can submit the data to the server using the POST method to the API endpoint https://app.getswipe.in/api/public/add.
 - Provide clear and concise feedback to the user upon successful completion of the action.
 
 ## Technologies and Best Practices Used
