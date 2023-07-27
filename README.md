@@ -29,7 +29,6 @@ This is a simple Android app that allows users to manage a list of products. The
 
 - MVVM architecture for clear separation of concerns and maintainability.
 - Retrofit for making REST API calls to retrieve product data.
-- KOIN for Dependency Injection to manage app-level dependencies.
 - Kotlin coroutines for handling asynchronous tasks efficiently.
 - LiveData for observing and updating UI components.
 - Picasso or Glide for loading and caching images from URLs.
