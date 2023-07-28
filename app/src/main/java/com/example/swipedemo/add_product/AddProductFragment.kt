@@ -22,7 +22,8 @@ import com.example.swipedemo.utils.LoadingUtils
 import com.google.android.material.snackbar.Snackbar
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 
 
@@ -44,12 +45,7 @@ class AddProductFragment : Fragment() {
                 selectedImageUri = uri
                 displaySelectedImage()
                 val imageFile = getRealPathFromUri(data.data)?.let { File(it) }
-                val requestFile = imageFile?.let {
-                    RequestBody.create(
-                        "image/*".toMediaTypeOrNull(),
-                        it
-                    )
-                }
+                val requestFile = imageFile?.asRequestBody("image/*".toMediaTypeOrNull())
                 imagePart = requestFile?.let {
                     MultipartBody.Part.createFormData(
                         "files[]",
@@ -182,22 +178,14 @@ class AddProductFragment : Fragment() {
 
     private fun submitData() {
         addProductViewModel.addProduct(
-            RequestBody.create(
-                "text/plain".toMediaTypeOrNull(),
-                binding.etProductName.text.toString()
-            ),
-            RequestBody.create(
-                "text/plain".toMediaTypeOrNull(),
-                selectedProductType!!
-            ),
-            RequestBody.create(
-                "text/plain".toMediaTypeOrNull(),
-                binding.etProductPrice.text.toString()
-            ),
-            RequestBody.create(
-                "text/plain".toMediaTypeOrNull(),
-                binding.etProductTax.text.toString()
-            ),
+            binding.etProductName.text.toString()
+                .toRequestBody("text/plain".toMediaTypeOrNull()),
+            selectedProductType!!
+                .toRequestBody("text/plain".toMediaTypeOrNull()),
+            binding.etProductPrice.text.toString()
+                .toRequestBody("text/plain".toMediaTypeOrNull()),
+            binding.etProductTax.text.toString()
+                .toRequestBody("text/plain".toMediaTypeOrNull()),
             imagePart
         )
         requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
