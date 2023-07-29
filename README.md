@@ -3,6 +3,11 @@
 
 This is a simple Android app that allows users to manage a list of products. The app provides two main screens: a product list screen and an add product screen.
 
+# GIF
+
+![](https://github.com/parvez08/Swipe_Demo/blob/master/swipe_demo_app.gif)
+
+
 ## Features
 
 ### Product List Screen
