@@ -5,7 +5,7 @@ This is a simple Android app that allows users to manage a list of products. The
 
 # GIF
 
-![](https://github.com/parvez08/Swipe_Demo/blob/master/swipe_demo_app.gif)
+<img src="https://github.com/parvez08/Swipe_Demo/blob/master/swipe_app_demo.gif"/>
 
 
 ## Features
