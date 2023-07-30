@@ -1,20 +1,20 @@
 package com.example.swipedemo.product_listing.utils
 
 import androidx.lifecycle.MutableLiveData
-import com.example.swipedemo.product_listing.models.ProductListingResponseModel
 import com.example.swipedemo.product_listing.models.ProductListingResponseModelItem
 import com.example.swipedemo.utils.GenericResponse
-import com.example.swipedemo.utils.RestAPIClass
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import retrofit2.Retrofit
+import org.koin.java.KoinJavaComponent.inject
+
 
 class ProductListingNetworkDataSource {
+
+    private val restApi: Retrofit by inject(Retrofit::class.java)
 
     suspend fun fetchProducts(
         data: MutableLiveData<GenericResponse<List<ProductListingResponseModelItem>>>
     ) {
-        val response = RestAPIClass.getClient().create(ProductListingAPIInterface::class.java)
+        val response = restApi.create(ProductListingAPIInterface::class.java)
             .getProducts()
         try {
             if (response.isSuccessful) data.postValue(
