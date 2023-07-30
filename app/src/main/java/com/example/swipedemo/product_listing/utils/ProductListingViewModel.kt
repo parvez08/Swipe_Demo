@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.swipedemo.product_listing.models.ProductListingResponseModel
 import com.example.swipedemo.product_listing.models.ProductListingResponseModelItem
 import com.example.swipedemo.utils.GenericResponse
 import kotlinx.coroutines.Dispatchers
