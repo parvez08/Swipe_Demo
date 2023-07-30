@@ -6,9 +6,9 @@ import android.util.Log
 open class LoadingUtils {
 
     companion object {
-        private val TAG = "LoadingUtils"
+        private const val TAG = "LoadingUtils"
 
-        private var jarvisLoader: SwipeLoader? = null
+        private var swipeLoader: SwipeLoader? = null
         fun showDialog(
             context: Context?,
             isCancelable: Boolean
@@ -16,8 +16,8 @@ open class LoadingUtils {
             hideDialog()
             if (context != null) {
                 try {
-                    jarvisLoader = SwipeLoader(context)
-                    jarvisLoader?.let { jarvisLoader ->
+                    swipeLoader = SwipeLoader(context)
+                    swipeLoader?.let { jarvisLoader ->
                         jarvisLoader.setCanceledOnTouchOutside(true)
                         jarvisLoader.setCancelable(isCancelable)
                         jarvisLoader.show()
@@ -30,17 +30,17 @@ open class LoadingUtils {
         }
 
         fun isShowing(): Boolean {
-            if (jarvisLoader == null) {
+            if (swipeLoader == null) {
                 return false;
             }
 
-            return jarvisLoader?.isShowing!!
+            return swipeLoader?.isShowing!!
         }
 
         fun hideDialog() {
-            if (jarvisLoader != null && jarvisLoader?.isShowing!!) {
-                jarvisLoader = try {
-                    jarvisLoader?.dismiss()
+            if (swipeLoader != null && swipeLoader?.isShowing!!) {
+                swipeLoader = try {
+                    swipeLoader?.dismiss()
                     null
                 } catch (e: IllegalArgumentException) {
                     Log.e(TAG, e.toString())
