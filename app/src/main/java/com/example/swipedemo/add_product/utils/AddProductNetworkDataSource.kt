@@ -3,12 +3,13 @@ package com.example.swipedemo.add_product.utils
 import androidx.lifecycle.MutableLiveData
 import com.example.swipedemo.add_product.models.AddProductResponseModel
 import com.example.swipedemo.utils.GenericResponse
-import com.example.swipedemo.utils.RestAPIClass
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import retrofit2.Retrofit
+import org.koin.java.KoinJavaComponent.inject
 
 class AddProductNetworkDataSource {
-
+    private val restApi: Retrofit by inject(Retrofit::class.java)
     suspend fun addProduct(
         productName: RequestBody?,
         productType: RequestBody,
@@ -17,7 +18,7 @@ class AddProductNetworkDataSource {
         imagePart: MultipartBody.Part?,
         data: MutableLiveData<GenericResponse<AddProductResponseModel>>
     ) {
-        val response = RestAPIClass.getClient().create(AddProductAPIInterface::class.java)
+        val response = restApi.create(AddProductAPIInterface::class.java)
             .addProduct(productName, productType, productPrice, productTax, imagePart)
         try {
             if (response.isSuccessful) data.postValue(

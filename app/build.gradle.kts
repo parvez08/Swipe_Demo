@@ -74,6 +74,8 @@ dependencies {
     implementation ("com.google.android.material:material:1.9.0")
     implementation ("com.karumi:dexter:6.2.2")
 
+    // Koin for Android
+    implementation ("io.insert-koin:koin-android:3.4.2")
 
     //retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
