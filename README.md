@@ -53,6 +53,7 @@ Please note that the `files[]` parameter allows multiple images to be uploaded a
 - MVVM architecture for clear separation of concerns and maintainability.
 - Retrofit for making REST API calls to retrieve product data.
 - Kotlin coroutines for handling asynchronous tasks efficiently.
+- KOIN for Dependency Injection to manage app-level dependencies.
 - LiveData for observing and updating UI components.
 - Picasso or Glide for loading and caching images from URLs.
 - RecyclerView for displaying the list of products efficiently.
